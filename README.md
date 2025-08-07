@@ -9,3 +9,4 @@
 - Create BrowserRoute > Routes > Route > added children route
 - Create an Outlet in your Body component to render the children route
 - Added Footer from daisyUI
+- Create Login
