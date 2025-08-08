@@ -1,9 +1,16 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router";
+import { baseUrl } from "../utils/constants";
 
 const Login = () => {
   const [username, setUsername] = useState("sophiab");
   const [password, setPassword] = useState("sophiabpass");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   //   "username": "emmaj",
   //"password": "emmajpass",
   //"username": "sophiab",
@@ -11,7 +18,7 @@ const Login = () => {
 
   async function handleLogin() {
     try {
-      const res = await fetch("api/auth/login", {
+      const res = await fetch(baseUrl + "/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -22,7 +29,9 @@ const Login = () => {
         credentials: "include",
       });
       const data = await res.json();
-      console.log(data, "data");
+
+      dispatch(addUser(data));
+      navigate("/");
     } catch (err) {
       console.log(err, "err");
     }

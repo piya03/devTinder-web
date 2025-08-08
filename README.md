@@ -10,3 +10,7 @@
 - Create an Outlet in your Body component to render the children route
 - Added Footer from daisyUI
 - Create Login
+- Install redux/toolkit and react-redux
+- ConfigureStore > Provider > createSlice > add reducer to store
+- Login and see data in store
+- Navbar should update as soon as user login
