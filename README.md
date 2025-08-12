@@ -14,3 +14,4 @@
 - ConfigureStore > Provider > createSlice > add reducer to store
 - Login and see data in store
 - Navbar should update as soon as user login
+- You should not be access other routes without login

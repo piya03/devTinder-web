@@ -29,7 +29,6 @@ const Login = () => {
         credentials: "include",
       });
       const data = await res.json();
-
       dispatch(addUser(data));
       navigate("/");
     } catch (err) {
