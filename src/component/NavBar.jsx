@@ -5,6 +5,7 @@ import { removeUser } from "../utils/userSlice";
 
 const NavBar = () => {
   const userData = useSelector((state) => state.user);
+  console.log("🚀 ~ NavBar ~ userData:", userData);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -21,41 +22,41 @@ const NavBar = () => {
           🙋‍♀️ DevTinder
         </Link>
       </div>
-      <div className="flex gap-2 items-center">
-        {userData && <p>Welcome {userData.firstName}</p>}
-        <div className="dropdown dropdown-end mx-5">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
-            <div className="w-10 rounded-full">
-              {userData && (
+      {userData?.firstName && (
+        <div className="flex gap-2 items-center">
+          <p>Welcome {userData.firstName}</p>
+          <div className="dropdown dropdown-end mx-5">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
                 <img alt="Tailwind CSS Navbar component" src={userData.image} />
-              )}
+              </div>
             </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li>
+                <Link to="/profile" className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </Link>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <Link to="/login" onClick={handleLogout}>
+                  Logout
+                </Link>
+              </li>
+            </ul>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            <li>
-              <Link to="/profile" className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </Link>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <Link to="/login" onClick={handleLogout}>
-                Logout
-              </Link>
-            </li>
-          </ul>
         </div>
-      </div>
+      )}
     </div>
   );
 };

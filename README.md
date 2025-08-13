@@ -16,3 +16,5 @@
 - Navbar should update as soon as user login
 - You should not be access other routes without login
 - Building Logout feature
+- Get the feed and add the feed in the store
+- build the user card on feed
