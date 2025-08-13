@@ -8,6 +8,7 @@ import { baseUrl } from "../utils/constants";
 const Login = () => {
   const [username, setUsername] = useState("sophiab");
   const [password, setPassword] = useState("sophiabpass");
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,11 +29,16 @@ const Login = () => {
         }),
         credentials: "include",
       });
+      if (res.status === 200) {
+        navigate("/");
+      } else {
+        throw new Error(res.statusText);
+      }
       const data = await res.json();
+
       dispatch(addUser(data));
-      navigate("/");
     } catch (err) {
-      console.log(err, "err");
+      setError(err.message);
     }
   }
   return (
@@ -62,6 +68,7 @@ const Login = () => {
               />
             </fieldset>
           </div>
+          <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center mt-2">
             <button onClick={handleLogin} className="btn btn-primary">
               Login

@@ -1,10 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router";
+import { removeUser } from "../utils/userSlice";
 
 const NavBar = () => {
   const userData = useSelector((state) => state.user);
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  function handleLogout() {
+    dispatch(removeUser());
+
+    navigate("/login");
+  }
   return (
     <div className="navbar bg-base-300 shadow-sm">
       <div className="flex-1">
@@ -41,7 +49,9 @@ const NavBar = () => {
               <a>Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <Link to="/login" onClick={handleLogout}>
+                Logout
+              </Link>
             </li>
           </ul>
         </div>
