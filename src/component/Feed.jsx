@@ -23,11 +23,8 @@ const Feed = () => {
   }, []);
 
   return (
-    <div>
-      {feedData &&
-        feedData.map((user) => {
-          return <UserCard key={user.id} user={user} />;
-        })}
+    <div className="flex flex-wrap my-20 gap-6 items-center justify-center">
+      {feedData && <UserCard user={feedData[0]} />}
     </div>
   );
 };
