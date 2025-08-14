@@ -38,9 +38,12 @@ const Connections = () => {
       <h1 className="text-3xl text-center my-4">Connections</h1>
       <div className="flex flex-wrap">
         {connectionData.map((elem) => {
-          const { firstName, lastName, age, gender, image } = elem;
+          const { id, firstName, lastName, age, gender, image } = elem;
           return (
-            <div className="bg-base-200 flex m-4 p-4 items-start gap-5 max-w-xl rounded-2xl">
+            <div
+              key={id}
+              className="bg-base-200 flex m-4 p-4 items-start gap-5 max-w-xl rounded-2xl"
+            >
               <div>
                 <img className="rounded-full" alt="photo" src={image} />
               </div>
