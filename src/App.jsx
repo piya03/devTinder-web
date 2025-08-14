@@ -5,6 +5,8 @@ import Login from "./component/Login";
 import Profile from "./component/Profile";
 import Feed from "./component/Feed";
 import ErrorPage from "./component/ErrorPage";
+import Requests from "./component/Requests";
+import Connections from "./component/Connections";
 
 import { BrowserRouter, Routes, Route } from "react-router";
 import { Provider } from "react-redux";
@@ -20,6 +22,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/errorPage" element={<ErrorPage />} />
+            <Route path="/connections" element={<Connections />} />
+            <Route path="/requests" element={<Requests />} />
           </Route>
         </Routes>
       </BrowserRouter>

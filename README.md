@@ -18,3 +18,5 @@
 - Building Logout feature
 - Get the feed and add the feed in the store
 - build the user card on feed
+- Edit profile feature build
+- Created connections page
