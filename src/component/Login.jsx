@@ -12,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("sophiabpass");
   const [error, setError] = useState("");
 
-  const [isLogginForm, setLogginForm] = useState(false);
+  const [isLogginForm, setLogginForm] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

@@ -5,7 +5,6 @@ import UserCard from "./UserCard";
 import { addUser } from "../utils/userSlice";
 
 const EditProfile = ({ userData }) => {
-  console.log("🚀 ~ EditProfile ~ userData: =======", userData);
   const {
     firstName: nameFirst,
     lastName: nameLast,
@@ -63,7 +62,7 @@ const EditProfile = ({ userData }) => {
         </div>
       )}
 
-      <div className="flex justify-center items-start my-10 gap-6 mx-10">
+      <div className="flex flex-col md:flex-row justify-center items-center my-10 gap-6 mx-10">
         <div className="flex justify-center">
           <div className="card bg-base-300 w-96 shadow-sm ">
             <div className="card-body">

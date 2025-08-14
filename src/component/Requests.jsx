@@ -36,7 +36,7 @@ const Requests = () => {
   return (
     <div>
       <h1 className="text-3xl text-center my-4">Connection Requests</h1>
-      <div className="grid grid-cols-[auto_auto_auto] justify-center items-center">
+      <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-[auto_auto_auto] justify-center items-center mb-20">
         {requestData.map((elem) => {
           const { firstName, lastName, age, gender, image, id } = elem;
           return (
