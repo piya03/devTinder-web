@@ -22,6 +22,11 @@ const Feed = () => {
     getFeed();
   }, []);
 
+  if (!feedData) return;
+
+  if (feedData.length === 0) {
+    return <div>No new User found</div>;
+  }
   return (
     <div className="flex flex-wrap my-20 gap-6 items-center justify-center">
       {feedData && <UserCard user={feedData[0]} />}

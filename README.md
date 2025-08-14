@@ -21,3 +21,5 @@
 - Edit profile feature build
 - New Page - See all my Connections
 - New Page - See all Request
+- Accept/Reject connection request
+- Send/Ignore the user card from the feed

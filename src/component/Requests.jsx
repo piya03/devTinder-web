@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addRequests } from "../utils/requestSlice";
+import { addRequests, removeRequest } from "../utils/requestSlice";
 
 const Requests = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,9 @@ const Requests = () => {
     }
   }
 
-  async function reviewRequest() {}
+  function reviewRequest(id) {
+    dispatch(removeRequest(id));
+  }
   useEffect(() => {
     fetchRequest();
   }, []);
@@ -50,8 +52,18 @@ const Requests = () => {
                 <h2>{age + " " + gender}</h2>
               </div>
               <div className="flex mx-2 self-end">
-                <button className="btn btn-primary mr-2">Reject</button>
-                <button className="btn btn-secondary">Accept</button>
+                <button
+                  onClick={() => reviewRequest(id)}
+                  className="btn btn-primary mr-2"
+                >
+                  Reject
+                </button>
+                <button
+                  onClick={() => reviewRequest(id)}
+                  className="btn btn-secondary"
+                >
+                  Accept
+                </button>
               </div>
             </div>
           );

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
-import { removeUser } from "../utils/userSlice";
+import { logoutUser } from "../utils/userSlice";
 
 const NavBar = () => {
   const userData = useSelector((state) => state.user);
@@ -10,7 +10,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   function handleLogout() {
-    dispatch(removeUser());
+    dispatch(logoutUser());
 
     navigate("/login");
   }

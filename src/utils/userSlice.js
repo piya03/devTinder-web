@@ -8,10 +8,13 @@ const userSlice = createSlice({
       return action.payload
     },
     removeUser: (state, action) => {
-      return null
-    }
+      const newArr = state.filter(elem => elem.id !== action.payload)
+      return newArr
+    },
+    logoutUser: (state, action) => null
+
   }
 })
 
-export const { addUser, removeUser } = userSlice.actions
+export const { addUser, removeUser, logoutUser } = userSlice.actions
 export default userSlice.reducer
